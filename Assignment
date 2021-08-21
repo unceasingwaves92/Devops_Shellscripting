@@ -1,0 +1,106 @@
+Task 1:
+#! /bin/bash
+
+echo "Shellscripting is Fun!"
+
+Task 2:
+FILE=/home/ubuntu/Desktop/sorted-animals.txt
+if [ -e "$FILE" ]
+then
+echo "Shadow passwords are enabled"
+fi
+
+if [ -w "$FILE" ]
+then
+echo "You have permissions to edit /etc/shadow1"
+else
+echo "You do NOT have permissions to edit /etc/shadow1."
+fi
+
+Task 3:
+#! /bin/bash
+NAMES="man beer pig dot cat";
+for NAME in $NAMES
+do
+echo  "hello $NAME"
+done
+
+Task 4:
+LS=$(ls);
+read -p "Enter File Name (or) Diretory Name:" NAME
+if [ -f "$NAME" ]
+then
+echo "$LS $NAME is a regular file";
+#echo "It is regular file";
+elif [ -d "$NAME" ]
+then
+echo "$LS $NAME is a directory";
+else
+echo "unable to file or directory";
+fi
+
+Task 5:
+FILE=$1
+#for FILE in $FILES
+#do
+if [ -f "$FILE" ]
+then
+echo "$FILE is a reguler file"
+elif [ -d "$FILE" ]
+then
+echo "$FILE is a directory"
+else
+echo "$FILE is another type of file"
+fi
+ls -l $FILE
+#done
+
+Task 6:
+FILE=$1
+if [ -f "$FILE" ]
+then
+echo "It is a regular file"
+exit 0
+elif [ -d "$FILE" ]
+then
+echo "Is a directory"
+exit 1
+else
+echo "other type"
+exit 2
+fi
+
+Task 7:
+cat /etc/shadow
+if [ "$?" -eq "0" ]
+then
+echo "Command succeeded"
+exit 0
+else
+echo "Command failed"
+exit 1
+fi
+
+Task 8:
+#!/bin/bash
+function file_count() {
+local NUMBER_OF_FILE=$(ls -l | wc -l)
+echo "$NUMBER_OF_FILE"
+}
+
+file_count
+
+Task 9:
+#!/bin/bash
+
+DAY=$(date +%F)
+cd /home/ubuntu/Desktop
+
+for FILE in *.jpg
+do
+        mv $FILE ${DAY}-${FILE}
+done
+
+
+
+
